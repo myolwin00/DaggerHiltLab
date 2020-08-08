@@ -3,15 +3,16 @@ package com.emrys.daggerhiltlab
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.emrys.daggerhiltlab.data.RetrofitService
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     @Inject lateinit var myAwesomeHelper: MyAwesomeHelper
     @Inject lateinit var retrofitService: RetrofitService
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (applicationContext as MyApp).appComponent.inject(this)
         super.onCreate(savedInstanceState)
 
         myAwesomeHelper.doAwesomeThings()
